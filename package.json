@@ -53,7 +53,6 @@
     "react-router-dom": "^6.21.3",
     "styled-components": "^6.1.8"
   },
-  "types": "dist/index.d.ts",
   "packageManager": "yarn@4.0.2",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
