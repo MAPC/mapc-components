@@ -1,5 +1,5 @@
 {
-  "name": "@mapc/mapc-components",
+  "name": "@mapc/components",
   "version": "0.0.1",
   "repository": "https://github.com/MAPC/mapc-components.git",
   "description": "A component library for use in MAPC websites",
