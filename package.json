@@ -1,6 +1,6 @@
 {
   "name": "@mapc/components",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": "https://github.com/MAPC/mapc-components.git",
   "description": "A component library for use in MAPC websites",
   "main": "dist/esm/index.min.js",

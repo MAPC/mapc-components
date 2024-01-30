@@ -1,1 +1,1 @@
-export {NavHeader} from "./components";
+export {NavHeader, RouterNavHeader} from "./components";

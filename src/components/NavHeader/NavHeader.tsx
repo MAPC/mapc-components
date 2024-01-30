@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import {LinkContainer} from "react-router-bootstrap";
 import {NavHeaderProps} from "./NavHeader.types";
 
-const NavHeaderContainer = styled.header`
+export const NavHeaderContainer = styled.header`
   background-color: #fbfffe;
   padding: 0.5rem 2.5rem;
   height: 3.75rem;
@@ -25,7 +25,7 @@ const NavHeaderContainer = styled.header`
   }
 `;
 
-const TitleContainer = styled.a`
+export const TitleContainer = styled.a`
   flex: 1;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ const TitleContainer = styled.a`
   height: 2rem;
 `;
 
-const TitleLink = styled.h1`
+export const TitleLink = styled.h1`
   font-size: 1.5rem;
   font-family: sans-serif;
   margin-bottom: 0px;
@@ -42,14 +42,14 @@ const TitleLink = styled.h1`
   line-height: 0.78rem;
 `;
 
-const NavContainer = styled(Nav)`
+export const NavContainer = styled(Nav)`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
 `;
 
-const NavLink = styled(Nav.Link)`
+export const NavLink = styled(Nav.Link)`
   font-family: sans-serif;
 `;
 
