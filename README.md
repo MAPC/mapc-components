@@ -64,7 +64,7 @@ const meta: Meta<typeof MyComponent> = {
 
 6. Continue developing your component, adding props to configure it as needed, and testing its functionality by running Storybook locally. Use other components in this repository as an example if it's helpful. 
 
-Make sure to export your component using a (named export)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export] from `./src/components/index.ts` so it can be bundled properly by Rollup. You should also bump the `version` in `package.json` (new components warrant a (minor version change)[https://semver.org/#spec-item-7]).
+Make sure to export your component using a [named export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) from `./src/components/index.ts` so it can be bundled properly by Rollup. You should also bump the `version` in `package.json` [new components warrant a (minor version change](https://semver.org/#spec-item-7)).
 
 Types for your component (and its props, if any) should be defined alongside the component/story, in the same directory (e.g., `MyComponent.types.ts`).
 
