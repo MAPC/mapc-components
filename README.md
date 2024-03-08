@@ -68,6 +68,6 @@ Make sure to export your component using a (named export)[https://developer.mozi
 
 Types for your component (and its props, if any) should be defined alongside the component/story, in the same directory (e.g., `MyComponent.types.ts`).
 
-7. Once the component is finished (or close to it), open a new (Pull Request)[https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests] (PR) for review. Feel free to open a (draft PR)[https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests] if you want to share in-progress code with other collaborators for additional feedback.
+7. Once the component is finished (or close to it), open a new [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (PR) for review. Feel free to open a [draft PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) if you want to share in-progress code with other collaborators for additional feedback.
 
-8. Once the code is reviewed, approved, and merged to `main`, (GitHub Actions)[https://docs.github.com/en/actions] will automatically deploy the updated Storybook and publish the new version to `npm`.
+8. Once the code is reviewed, approved, and merged to `main`, [GitHub Actions](https://docs.github.com/en/actions) will automatically deploy the updated Storybook and publish the new version to `npm`.
