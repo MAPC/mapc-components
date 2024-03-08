@@ -1,15 +1,15 @@
 # mapc-components
 ## Overview
-This repository contains general-purpose React components for use when building web apps at MAPC. It uses (Storybook)[https://storybook.js.org/] to showcase them (see the currently available components (here)[TODO]), and (Rollup)[https://rollupjs.org/] to efficiently package them for use in other projects. All components are written in (Typescript)[https://www.typescriptlang.org/] (see version in `package.json`).
+This repository contains general-purpose React components for use when building web apps at MAPC. It uses [Storybook](https://storybook.js.org/) to showcase them (see the currently available components [here](TODO)), and [Rollup](https://rollupjs.org/) to efficiently package them for use in other projects. All components are written in [Typescript](https://www.typescriptlang.org/) (see version in `package.json`).
 
 ## Guiding Principles
-Components should be generally useful, configurable, performant, and they should adhere to our current (branding guidelines)[TODO] and (style guide)[TODO]. One typical pattern is to develop components as needed in other projects, then pulling them into this repository and making them more generalized.
+Components should be generally useful, configurable, performant, and they should adhere to our current [branding guidelines](TODO) and [style guide](TODO). One typical pattern is to develop components as needed in other projects, then pulling them into this repository and making them more generalized.
 
-Many of our projects make liberal use of (React Bootstrap)[https://react-bootstrap.github.io/]; if these components work well enough in our projects, we likely don't need to create a similar component here. That said, if there's a particular customization of those components that we'd like to repeatedly use, this is the place to add that. (styled-components)[https://styled-components.com/] is another often-used library at MAPC, and it can be used here as well. Since this is a component library, we should be thoughtful about (and try to minimize the number of) dependencies we add here.
+Many of our projects make liberal use of [React Bootstrap](https://react-bootstrap.github.io/); if these components work well enough in our projects, we likely don't need to create a similar component here. That said, if there's a particular customization of those components that we'd like to repeatedly use, this is the place to add that. [styled-components](https://styled-components.com/) is another often-used library at MAPC, and it can be used here as well. Since this is a component library, we should be thoughtful about (and try to minimize the number of) dependencies we add here.
 
 In general, configuration should be driven by props passed to the component; this allows us to manage state outside the component as needed. Components can have internal state where appropriate, but we should aim to make components in this repository "presentational" to the extent possible.
 
-(eslint)[https://eslint.org/] and (prettier)[https://prettier.io/] are used to enforce code style (see `.eslintrc.js` and `.prettierrc.js` for specific configuration details)
+[eslint](https://eslint.org/) and [prettier](https://prettier.io/) are used to enforce code style (see `.eslintrc.js` and `.prettierrc.js` for specific configuration details)
 
 ## Usage
 TODO: Notes on how to incorporate these components into other web apps
@@ -19,7 +19,7 @@ TODO: npm vs github packages
 ### Local development
 Install dependencies using `yarn`.
 
-To run Storybook locally, use `yarn storybook`, and follow the instructions in the terminal output to open Storybook in your browser (by default, it runs on port `6006` and can be accessed at (http://localhost:6006/)[http://localhost:6006/]) .
+To run Storybook locally, use `yarn storybook`, and follow the instructions in the terminal output to open Storybook in your browser (by default, it runs on port `6006` and can be accessed at [http://localhost:6006/](http://localhost:6006/)) .
 
 ### Adding a new component
 1. Define the component to be built and name it. The examples ahead use the name `MyComponent`.
@@ -28,7 +28,7 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
 
 3. In your new branch, create a new directory under `./src/components/` with that name, using PascalCase (e.g., `./src/components/MyComponent/`
 
-4. In that directory, create a new React functional component for your component (e.g., `MyComponent.tsx`). This can start by just returning a simple (Fragment)[https://react.dev/reference/react/Fragment]:
+4. In that directory, create a new React functional component for your component (e.g., `MyComponent.tsx`). This can start by just returning a simple [Fragment](https://react.dev/reference/react/Fragment):
 ```TSX
 import React from "react";
 
@@ -39,7 +39,7 @@ export const MyComponent: React.FC = () => {
 export default MyComponent;
 ```
 
-5. In that same directory, set up a new (story)[https://storybook.js.org/docs/get-started/whats-a-story] for the component (e.g. `MyComponent.stories.tsx`). To start, this can also just be a simple placeholder:
+5. In that same directory, set up a new [story](https://storybook.js.org/docs/get-started/whats-a-story) for the component (e.g. `MyComponent.stories.tsx`). To start, this can also just be a simple placeholder:
 ```TSX
 import type { Meta, StoryObj } from '@storybook/react';
 
