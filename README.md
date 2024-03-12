@@ -31,15 +31,15 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
   a. `mkdir ./src/components/MyComponent/`
 
 4. In that directory, create a new React functional component for your component (e.g., `MyComponent.tsx`). This can start by just returning a simple [Fragment](https://react.dev/reference/react/Fragment):
-  a. ```TSX
-import React from "react";
+   ```TSX
+   import React from "react";
 
-export const MyComponent: React.FC = () => {
-  return (<></>);
-};
+   export const MyComponent: React.FC = () => {
+     return (<></>);
+   };
 
- export default MyComponent;
- ```
+   export default MyComponent;
+   ```
 
 5. In that same directory, set up a new [story](https://storybook.js.org/docs/get-started/whats-a-story) for the component (e.g. `MyComponent.stories.tsx`). To start, this can also just be a simple placeholder:
   a. ```TSX
