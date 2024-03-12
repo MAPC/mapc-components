@@ -26,9 +26,11 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
 1. Define the component to be built and name it. The examples ahead use the name `MyComponent`.
 
 2. Clone this repository if you haven't already, and create a new branch off of the `main` branch, using kebab-case (e.g., `my-component`)
+   
    `git checkout -b my-component`
 
 3. In your new branch, create a new directory under `./src/components/` with that name, using PascalCase (e.g., `./src/components/MyComponent/`
+  
    `mkdir ./src/components/MyComponent/`
 
 4. In that directory, create a new React functional component for your component (e.g., `MyComponent.tsx`). This can start by just returning a simple [Fragment](https://react.dev/reference/react/Fragment):
