@@ -1,10 +1,11 @@
 import React from "react";
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {TestButton} from "./TestButton";
+import { TestButton } from "./TestButton";
 
 const meta: Meta<typeof TestButton> = {
   component: TestButton,
+  title: "MAPC/TestButton",
 };
 
 export default meta;

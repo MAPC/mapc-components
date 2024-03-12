@@ -1,7 +1,7 @@
 import React from "react";
 
 export const TestButton: React.FC = () => {
-  return <></>;
+  return <button>Test button</button>;
 };
 
 export default TestButton;
