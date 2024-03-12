@@ -25,6 +25,7 @@
     "@storybook/react": "^7.6.10",
     "@storybook/react-webpack5": "^7.6.10",
     "@storybook/test": "^7.6.10",
+    "@stylistic/eslint-plugin-js": "^1.6.3",
     "@types/bootstrap": "^5",
     "@types/react": "^18.2.48",
     "@types/react-router-bootstrap": "^0",
