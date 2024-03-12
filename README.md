@@ -1,9 +1,9 @@
 # mapc-components
 ## Overview
-This repository contains general-purpose React components for use when building web apps at MAPC. It uses [Storybook](https://storybook.js.org/) to showcase them (see the currently available components [here](TODO)), and [Rollup](https://rollupjs.org/) to efficiently package them for use in other projects. All components are written in [Typescript](https://www.typescriptlang.org/) (see version in `package.json`).
+This repository contains general-purpose React components for use when building web apps at MAPC. It uses [Storybook](https://storybook.js.org/) to showcase them (see the currently available components [here](https://mapc.github.io/mapc-components/)), and [Rollup](https://rollupjs.org/) to efficiently package them for use in other projects. All components are written in [Typescript](https://www.typescriptlang.org/) (see version in `package.json`).
 
 ## Guiding Principles
-Components should be generally useful, configurable, performant, and they should adhere to our current [branding guidelines](TODO) and [style guide](TODO). One typical pattern is to develop components as needed in other projects, then pulling them into this repository and making them more generalized.
+Components should be generally useful, configurable, performant, and they should adhere to our current [branding guidelines](#TODO) and [style guide](#TODO). One typical pattern is to develop components as needed in other projects, then pulling them into this repository and making them more generalized.
 
 Many of our projects make liberal use of [React Bootstrap](https://react-bootstrap.github.io/); if these components work well enough in our projects, we likely don't need to create a similar component here. That said, if there's a particular customization of those components that we'd like to repeatedly use, this is the place to add that. [styled-components](https://styled-components.com/) is another often-used library at MAPC, and it can be used here as well. Since this is a component library, we should be thoughtful about (and try to minimize the number of) dependencies we add here.
 
@@ -13,6 +13,7 @@ In general, configuration should be driven by props passed to the component; thi
 
 ## Usage
 TODO: Notes on how to incorporate these components into other web apps
+
 TODO: npm vs github packages
 
 ## Contributing
@@ -25,10 +26,10 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
 1. Define the component to be built and name it. The examples ahead use the name `MyComponent`.
 
 2. Clone this repository if you haven't already, and create a new branch off of the `main` branch, using kebab-case (e.g., `my-component`)
-  a. `git checkout -b my-component`
+   `git checkout -b my-component`
 
 3. In your new branch, create a new directory under `./src/components/` with that name, using PascalCase (e.g., `./src/components/MyComponent/`
-  a. `mkdir ./src/components/MyComponent/`
+   `mkdir ./src/components/MyComponent/`
 
 4. In that directory, create a new React functional component for your component (e.g., `MyComponent.tsx`). This can start by just returning a simple [Fragment](https://react.dev/reference/react/Fragment):
    ```TSX
@@ -78,4 +79,4 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
 
 7. Once the component is finished (or close to it), open a new [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (PR) for review. Feel free to open a [draft PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) if you want to share in-progress code with other collaborators for additional feedback.
 
-8. Once the code is reviewed, approved, and merged to `main`, [GitHub Actions](https://docs.github.com/en/actions) will automatically deploy the updated Storybook and publish the new version to `npm`.
+8. Once the code is reviewed, approved, and merged to `main`, [GitHub Actions](https://docs.github.com/en/actions) will automatically deploy the updated Storybook. An administrator for this repository can then manually build the distribution artifacts and publish them `npm`.
