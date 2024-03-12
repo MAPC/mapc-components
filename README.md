@@ -42,38 +42,39 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
    ```
 
 5. In that same directory, set up a new [story](https://storybook.js.org/docs/get-started/whats-a-story) for the component (e.g. `MyComponent.stories.tsx`). To start, this can also just be a simple placeholder:
-  a. ```TSX
-import React from "react";
-import type { Meta, StoryObj } from '@storybook/react';
+   ```TSX
+   import React from "react";
+   import type { Meta, StoryObj } from '@storybook/react';
 
-import { MyComponent } from './MyComponent';
+   import { MyComponent } from './MyComponent';
 
-const meta: Meta<typeof MyComponent> = {
-  component: MyComponent,
-};
+   const meta: Meta<typeof MyComponent> = {
+     component: MyComponent,
+   };
 
-export default meta;
-type Story = StoryObj<typeof MyComponent>;
+   export default meta;
+   type Story = StoryObj<typeof MyComponent>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/api/csf
- * to learn how to use render functions.
- */
-export const Primary: Story = {
-  render: () => <MyComponent />,
-};
-  b. Export your component by creating an `index.ts` file in that directory (e.g., `./src/components/MyComponent/index.ts`) and using a named export:
-  ```TypeScript
-  export { MyComponent } from "./MyComponent";
-  ```
-  c. Add your component as a named export from the `index.js` files in the `component` and `src` directories as well
+   /*
+    *👇 Render functions are a framework specific feature to allow you control on how the component renders.
+    * See https://storybook.js.org/docs/api/csf
+    * to learn how to use render functions.
+    */
+   export const Primary: Story = {
+     render: () => <MyComponent />,
+   };
+   ```
+   and export your component by creating an `index.ts` file in that directory (e.g., `./src/components/MyComponent/index.ts`) and using a named export:
+   ```TypeScript
+   export { MyComponent } from "./MyComponent";
+   ```
+   and add your component as a named export from the `index.js` files in the `component` and `src` directories as well.
 
 6. Continue developing your component, adding props to configure it as needed, and testing its functionality by running Storybook locally. Use other components in this repository as an example if it's helpful. 
 
-  Make sure to export your component using a [named export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) from `./src/components/index.ts` so it can be bundled properly by Rollup. You should also bump the `version` in `package.json` (new components warrant a [minor version change](https://semver.org/#spec-item-7)).
+   Make sure to export your component using a [named export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) from `./src/components/index.ts` so it can be bundled properly by Rollup. You should also bump the `version` in `package.json` (new components warrant a [minor version change](https://semver.org/#spec-item-7)).
 
-  Types for your component (and its props, if any) should be defined alongside the component/story, in the same directory (e.g., `MyComponent.types.ts`).
+   Types for your component (and its props, if any) should be defined alongside the component/story, in the same directory (e.g., `MyComponent.types.ts`).
 
 7. Once the component is finished (or close to it), open a new [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (PR) for review. Feel free to open a [draft PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) if you want to share in-progress code with other collaborators for additional feedback.
 
