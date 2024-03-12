@@ -3,3 +3,8 @@ node_modules
 
 # Build output
 dist
+dist/**
+dist/**/*
+
+# yarn
+.yarn/install-state.gz

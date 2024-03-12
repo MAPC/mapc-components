@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Nav from "react-bootstrap/Nav";
-import {LinkContainer} from "react-router-bootstrap";
-import {NavHeaderProps} from "./NavHeader.types";
+import { LinkContainer } from "react-router-bootstrap";
+import { NavHeaderProps } from "./NavHeader.types";
 
 export const NavHeaderContainer = styled.header`
   background-color: #fbfffe;
