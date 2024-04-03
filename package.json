@@ -16,17 +16,16 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-essentials": "^7.6.10",
     "@storybook/addon-interactions": "^7.6.10",
     "@storybook/addon-links": "^7.6.10",
-    "@storybook/addon-onboarding": "^1.0.11",
     "@storybook/blocks": "^7.6.10",
     "@storybook/react": "^7.6.10",
     "@storybook/react-webpack5": "^7.6.10",
     "@storybook/test": "^7.6.10",
     "@stylistic/eslint-plugin-js": "^1.6.3",
     "@types/bootstrap": "^5",
+    "@types/leaflet": "^1",
     "@types/react": "^18.2.48",
     "@types/react-router-bootstrap": "^0",
     "@types/styled-components": "^5.1.34",
@@ -45,8 +44,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "storybook": "^7.6.10",
-    "styled-components": "^6.1.8",
-    "typescript": "^5.3.3"
+    "styled-components": "^6.1.8"
   },
   "peerDependencies": {
     "bootstrap": "^5.3.2",
@@ -60,5 +58,14 @@
   "packageManager": "yarn@4.0.2",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@types/react-leaflet": "^3.0.0",
+    "airtable": "^0.12.2",
+    "arcgis-pbf-parser": "^0.0.4",
+    "idb": "^8.0.0",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1"
   }
 }
