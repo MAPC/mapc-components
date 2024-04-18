@@ -14,10 +14,9 @@ const preview: Preview = {
       },
     },
     options: {
-      // storySort: (a, b) => {
-      //   const order = ["Overview", "Media", "Components", "Misc"];
-      //   return order.indexOf(a[1].kind) - order.indexOf(b[1].kind);
-      // },
+      storySort: {
+        order: ["Overview", ["Introduction", "Get Started", "Principles", "Themes", "Examples"], "Media", "Components", "Misc", ["Contributing", "Templates"]],
+      },
     },
     decorators: [
       (Story) => (
