@@ -1,5 +1,6 @@
 import { create } from "@storybook/theming/create";
 import mapclogo from "../src/assets/mapc-fullcolor.png";
+import * as theme from "../src/themes/colors";
 
 export default create({
   base: "light",
@@ -12,8 +13,7 @@ export default create({
   brandImage: mapclogo,
   brandTarget: "_self",
 
-  //
-  colorPrimary: "#104c90",
+  colorPrimary: theme.mapc_blue["MAPC Blue"],
   //   colorSecondary: "#004b24",
   //   colorSecondary: "#c8e2ae",
 

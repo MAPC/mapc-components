@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import React, { useEffect, useState } from "react";
-import { Table } from "airtable";
-import { Link } from "react-router-dom";
+
+import * as style_theme from "../../themes/styles";
 
 const TableContainer = styled.div`
   display: flex;
@@ -22,18 +22,36 @@ const TableSection = styled.div`
   padding: ${(props) => `calc(2rem) calc(4rem / ${props.numSections})`};
   border-radius: 5px;
 
-  background-color: #c8e2ae;
+  border-style: solid;
+  border-width: 3px;
+  border-color: ${(props) => props.theme.primary};
+  background-color: ${(props) => props.theme.tertiary};
 `;
 
 const TableSectionTitle = styled.h3`
   margin-bottom: 1rem;
+  color: ${(props) => props.theme.secondary};
 `;
 
 const TableSectionText = styled.span`
   margin-bottom: 1rem;
 `;
 
-export const TableSectionLink = styled(Link)`
+const TableSectionLinkUl = styled.ul`
+  list-style-type: "⭐ ";
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  justify-content: end;
+`;
+
+const TableSectionLinkLi = styled.li`
+  color:;
+`;
+
+const TableSectionLink = styled.a`
   font-family: sans-serif;
 `;
 
@@ -47,14 +65,24 @@ export const TableOfContents = ({ TableData, Themes, Height }) => {
 
       Object.values(data).forEach((section) => {
         const tempLinks = [];
+
         section.links.forEach((link) => {
-          tempLinks.push(<TableSectionLink>{link}</TableSectionLink>);
+          tempLinks.push(
+            <TableSectionLinkLi>
+              <TableSectionLink
+                href={window.location.origin + "/" + link.link}
+                style={style_theme.themed_link(Themes)}
+              >
+                {link.name}
+              </TableSectionLink>
+            </TableSectionLinkLi>
+          );
         });
         tempTable.push(
           <TableSection numSections={Object.values(data).length}>
             <TableSectionTitle>{section.title}</TableSectionTitle>
             <TableSectionText>{section.text}</TableSectionText>
-            {tempLinks}
+            <TableSectionLinkUl>{tempLinks}</TableSectionLinkUl>
           </TableSection>
         );
       });
@@ -64,9 +92,12 @@ export const TableOfContents = ({ TableData, Themes, Height }) => {
 
     generateTable(TableData);
   }, [TableData]);
-  console.log(Height);
-
-  return <TableContainer height={Height}>{tableSections}</TableContainer>;
+  console.log(Themes);
+  return (
+    <TableContainer height={Height}>
+      <ThemeProvider theme={Themes}>{tableSections}</ThemeProvider>
+    </TableContainer>
+  );
 };
 
 export default TableOfContents;

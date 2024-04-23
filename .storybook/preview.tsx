@@ -15,14 +15,21 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ["Overview", ["Introduction", "Get Started", "Principles", "Themes", "Examples"], "Media", "Components", "Misc", ["Contributing", "Templates"]],
+        order: [
+          "Overview",
+          ["Introduction", "Get Started", "Principles", "Themes", "Resources & Tools", "Examples"],
+          "Media",
+          "Components",
+          "Misc",
+          ["Contributing", "Templates"],
+        ],
       },
     },
     decorators: [
       (Story) => (
         <div
           className="test"
-          style={{ margin: "2em" }}
+          style={{ margin: "1em" }}
         >
           <Story />
         </div>
