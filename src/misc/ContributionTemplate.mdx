@@ -4,6 +4,60 @@ import { Canvas, Meta } from "@storybook/blocks";
 
 # Templates
 
-A checkbox is a square box that can be activated or deactivated when ticked.
+Included are templates for contribution, creating a basic react component and the associated story for rendering that component with different parameters using Storybook.
 
-Use checkboxes to select one or more options from a list of choices.
+## Component Templates
+
+Small template for a basic 'Hello World' component:
+
+```
+import styled, { ThemeProvider } from "styled-components";
+import React, { useEffect, useState } from "react";
+
+import * as style_theme from "../../themes/styles";
+
+export const HelloWorld = ({ text }) => {
+
+  return (
+    <div>
+        {text}
+    </div>
+  );
+};
+
+export default HelloWorld;
+
+```
+
+## Stories Template
+
+Small template for a basic story, rendering it out to Storybook:
+
+```
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
+import { HelloWorld } from "./HelloWorld";
+
+import * as theme from "../../themes/colors";
+
+{/* decorators for decorating component with router capabilities, not necessary for this component */}
+const meta = {
+  component: HelloWorld,
+  title: "Components/HelloWorld",
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
+};
+export default meta;
+
+export const HelloWorld = (args) => <HelloWorld {...args} />;
+HelloWorld.args = {
+  text: "Hello World!"
+};
+
+```
