@@ -7,8 +7,8 @@ export const themed_link = (theme) => {
   return { textDecoration: "none", color: theme.special };
 };
 
-export const mapc_global_style = createGlobalStyle<{ $whiteColor?: boolean; }>`
+export const MapcGlobalStyle = createGlobalStyle`
   body {
-    color: ${props => (props.$whiteColor ? 'white' : 'black')};
+    font-family: "Calibre-Regular, SwiftNeueLTPro-Regular";
   }
-`
+`;

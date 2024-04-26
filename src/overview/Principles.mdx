@@ -13,6 +13,25 @@ The following are core considerations for qualities to consider in the addition 
 - Easy to customize and style with theming
 - Compatible with other components
 - Independent and free from external dependencies
+- Use and then customize [React Bootstrap]() where possible
+
+## Interactivity/patterns/"juice"
+
+- Components in the library should account for the many common interaction states that occur on the web, namely:
+  - Active/selected
+  - Hover
+  - Loading
+  - onMouseDown, onClick
+  - Disabled
+  - Error
+  - Warning
+- Components that depend on state/data should offer a consistent and accommodating set of data structures to support those interactions
+  - For buttons connected to a network request for data from an API, for example, we should establish a way of representing these states:
+  - In addition to the various states a component can be in, we should also provide a mechanism for showing displayable error messages (originating either from the front-end or the server)
+    - Toasts (like https://react-bootstrap.github.io/docs/components/toasts) can be used for both durable and transient messages
+    - Flash messages (a la Rails (https://api.rubyonrails.org/classes/ActionDispatch/Flash.html) and Django (https://docs.djangoproject.com/en/5.0/ref/contrib/messages/)) can also be used for transient messages
+  - We should also try to cache data whenever it make sense, so we should also provide a means to let the user force a refresh (manually busting the cache) if desired
+  - We should also be able to handle paginated results, and potentially infinite-scroll
 
 ## STRUCTURE AND FORMATTING
 
@@ -24,5 +43,3 @@ Defines how to organize the structure of documenting a component in MAPC Compone
 - It should be written in Javascript
   - Opting for Javascript in lieu of Typescript for streamlined development of new projects. May need to define individual typing to integrate with Typescript projects
 - It should have a well-thought-out name that is intuitive yet eliminates ambiguity as to its function
-
-## Attached are several resources to be used as reference for MAPC style and accessibilty guide:
