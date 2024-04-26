@@ -15,6 +15,8 @@ fonts = [
 "Calibre-ThinItalic",
 "SwiftNeueLTPro-Italic",
 "SwiftNeueLTPro-Regular",
+"OpenSans",
+"OpenSans-Italic",
 ]
 
 for font in fonts:
