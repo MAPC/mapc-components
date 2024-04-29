@@ -4,18 +4,13 @@ import { FormControl } from "react-bootstrap";
 
 import * as style_theme from "../../themes/styles";
 
-const TextControl = styled(FormControl)``;
+const TextControl = styled(FormControl)`
+  border-color: ${(props) => {
+    return props.theme.special;
+  }};
+`;
 
-export const TextInput = ({
-  text,
-  readOnly = false,
-  type = "text",
-  disabled = false,
-  isValid = true,
-  isInvalid = false,
-  onChange = () => {},
-  numericOnly = true,
-}) => {
+export const TextInput = ({ text, readOnly = false, type = "text", disabled = false, isValid = true, isInvalid = false, onChange = () => {}, theme }) => {
   // function proxyHandler(event){
   //     if(numericOnly && event.target.value == nu){
 
@@ -31,6 +26,7 @@ export const TextInput = ({
         isValid={isValid}
         isInvalid={isInvalid}
         onChange={onChange}
+        theme={theme}
       />
     </>
   );

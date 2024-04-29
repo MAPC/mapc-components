@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
 import { TextInput } from "./TextInput";
 
-import * as theme from "../../themes/colors";
+import * as colorTheme from "../../../themes/colors";
 
 {
   /* decorators for decorating component with router capabilities, not necessary for this component */
@@ -26,6 +26,6 @@ TextInputStory.args = {
   disabled: false,
   isValid: false,
   isInvalid: false,
-  numericOnly: false,
+  theme: colorTheme.blueTheme,
   onChange: handleChange,
 };

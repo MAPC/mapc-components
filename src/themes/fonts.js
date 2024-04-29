@@ -1,8 +1,8 @@
-const font_opensans = new FontFace("OpenSans", `url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap)`);
+const fontOpensans = new FontFace("OpenSans", `url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap)`);
 
 export const opensans = {
   type: {
-    primary: font_opensans,
+    primary: fontOpensans,
   },
   weight: {
     regular: "400",
