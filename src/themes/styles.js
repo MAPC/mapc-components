@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-import * as color_theme from "./colors";
+import * as colorTheme from "./colors";
 
 export const themed_link = (theme) => {
   // takes theme color, returns link styling
