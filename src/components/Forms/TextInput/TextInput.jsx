@@ -8,6 +8,9 @@ const TextControl = styled(FormControl)`
   border-color: ${(props) => {
     return props.theme.special;
   }};
+  color: ${(props) => {
+    return props.theme.primary || "#000000";
+  }};
 `;
 
 export const TextInput = ({ text, readOnly = false, type = "text", disabled = false, isValid = true, isInvalid = false, onChange = () => {}, theme }) => {
