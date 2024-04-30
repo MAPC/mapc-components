@@ -1,0 +1,21 @@
+import { Canvas, Meta, IconGallery, IconItem } from "@storybook/blocks";
+
+import { assets } from "../assets";
+
+<Meta title="Media/Assets" />
+
+# Assets
+
+Set of commonly included assets in MAPC projects, can be imported from this list:
+
+<IconGallery>
+  <IconItem name="full_color_logo">
+    <img src={assets.full_color_logo} />
+  </IconItem>
+  <IconItem name="duo_tone_logo">
+    <img src={assets.duo_tone_logo} />
+  </IconItem>
+  <IconItem name="semi_transparent_logo">
+    <img src={assets.semi_transparent_logo} />
+  </IconItem>
+</IconGallery>

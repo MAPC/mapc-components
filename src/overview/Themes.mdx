@@ -1,0 +1,151 @@
+import { Canvas, Meta, ColorPalette, ColorItem, Typeset } from "@storybook/blocks";
+
+import * as colorTheme from "../themes/colors";
+import * as fontTheme from "../themes/fonts";
+
+<Meta title="Overview/Themes" />
+
+# Themes
+
+These are several sets of MAPC branded styling themes, including guidelines for: Styles, Colors, Fonts
+
+## Styling
+
+### Global Styled Components
+
+Import the global style theming from `mapc-components` to the file
+
+```
+import MapcGlobalStyle from "mapc_components";
+```
+
+Add this code block to the top of your React tree to inject MAPC global styles to your project:
+
+```
+<MapcGlobalStyle />
+
+```
+
+## Color Palettes
+
+Colors referenced from MAPC General Color Family & MAPC Visual and Style Guide.
+
+### Color Scheme
+
+<ColorPalette>
+  <ColorItem
+    title="MAPC Green"
+    subtitle="Greens"
+    colors={colorTheme.mapcGreen}
+  />
+  <ColorItem
+    title="MAPC Blue"
+    subtitle="Blues"
+    colors={colorTheme.mapcBlue}
+  />
+  <ColorItem
+    title="Yellow Orange"
+    subtitle="Clean Energy & Handouts"
+    colors={colorTheme.mapcYellow}
+  />
+</ColorPalette>
+
+### General Color Family
+
+<ColorPalette>
+  <ColorItem
+    title="Oranges"
+    subtitle="Oranges"
+    colors={colorTheme.oranges}
+  />
+  <ColorItem
+    title="Yellows"
+    subtitle="Yellows"
+    colors={colorTheme.yellows}
+  />
+  <ColorItem
+    title="Greens"
+    subtitle="Greens"
+    colors={colorTheme.greens}
+  />
+  <ColorItem
+    title="Blues"
+    subtitle="Blues"
+    colors={colorTheme.blues}
+  />
+  <ColorItem
+    title="Grays"
+    subtitle="Grays"
+    colors={colorTheme.grays}
+  />
+</ColorPalette>
+
+### MC 2050 Color Family
+
+<ColorPalette>
+  <ColorItem
+    title="MCYellows"
+    subtitle="MCYellows"
+    colors={colorTheme.MCYellows}
+  />
+  <ColorItem
+    title="MCOranges"
+    subtitle="MCOranges"
+    colors={colorTheme.MCOranges}
+  />
+  <ColorItem
+    title="MCBlues"
+    subtitle="MCBlues"
+    colors={colorTheme.MCBlues}
+  />
+  <ColorItem
+    title="MCLightBlues"
+    subtitle="MCLightBlues"
+    colors={colorTheme.MCLightBlues}
+  />
+  <ColorItem
+    title="MCTeals"
+    subtitle="MCTeals"
+    colors={colorTheme.MCTeals}
+  />
+  <ColorItem
+    title="MCGreens"
+    subtitle="MCGreens"
+    colors={colorTheme.MCGreens}
+  />
+  <ColorItem
+    title="MCMaroons"
+    subtitle="MCMaroons"
+    colors={colorTheme.MCMaroons}
+  />
+  <ColorItem
+    title="MCPurples"
+    subtitle="MCPurples"
+    colors={colorTheme.MCPurples}
+  />
+  <ColorItem
+    title="MCGrays"
+    subtitle="MCGrays"
+    colors={colorTheme.MCGrays}
+  />
+</ColorPalette>
+
+## Font Typesets
+
+<Typeset
+  title="OpenSans"
+  fontSizes={[
+    Number(fontTheme.opensans.size.s1),
+    Number(fontTheme.opensans.size.s2),
+    Number(fontTheme.opensans.size.s3),
+    Number(fontTheme.opensans.size.m1),
+    Number(fontTheme.opensans.size.m2),
+    Number(fontTheme.opensans.size.m3),
+    Number(fontTheme.opensans.size.l1),
+    Number(fontTheme.opensans.size.l2),
+    Number(fontTheme.opensans.size.l3),
+  ]}
+  fontWeight={fontTheme.opensans.weight.black}
+  sampleText={"The Quick Brown Fox Jumps Over The Lazy Dog"}
+  fontFamily={fontTheme.opensans.type.primary}
+/>
