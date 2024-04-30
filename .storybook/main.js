@@ -1,8 +1,6 @@
-import type {StorybookConfig} from "@storybook/react-webpack5";
-
-const config: StorybookConfig = {
+const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-onboarding", "@storybook/addon-interactions"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions"],
   core: {
     disableTelemetry: true,
   },
@@ -18,4 +16,5 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
 };
+
 export default config;

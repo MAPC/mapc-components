@@ -1,6 +1,6 @@
 # mapc-components
 ## Overview
-This repository contains general-purpose React components for use when building web apps at MAPC. It uses [Storybook](https://storybook.js.org/) to showcase them (see the currently available components [here](https://mapc.github.io/mapc-components/)), and [Rollup](https://rollupjs.org/) to efficiently package them for use in other projects. All components are written in [Typescript](https://www.typescriptlang.org/) (see version in `package.json`).
+This repository contains general-purpose React components for use when building web apps at MAPC. It uses [Storybook](https://storybook.js.org/) to showcase them (see the currently available components [here](https://mapc.github.io/mapc-components/)), and [Rollup](https://rollupjs.org/) to efficiently package them for use in other projects.
 
 ## Guiding Principles
 Components should be generally useful, configurable, performant, and they should adhere to our current [branding guidelines](#TODO) and [style guide](#TODO). One typical pattern is to develop components as needed in other projects, then pulling them into this repository and making them more generalized.
@@ -33,8 +33,8 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
   
    `mkdir ./src/components/MyComponent/`
 
-4. In that directory, create a new React functional component for your component (e.g., `MyComponent.tsx`). This can start by just returning a simple [Fragment](https://react.dev/reference/react/Fragment):
-   ```TSX
+4. In that directory, create a new React functional component for your component (e.g., `MyComponent.jsx`). This can start by just returning a simple [Fragment](https://react.dev/reference/react/Fragment):
+   ```JSX
    import React from "react";
 
    export const MyComponent: React.FC = () => {
@@ -44,31 +44,29 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
    export default MyComponent;
    ```
 
-5. In that same directory, set up a new [story](https://storybook.js.org/docs/get-started/whats-a-story) for the component (e.g. `MyComponent.stories.tsx`). To start, this can also just be a simple placeholder:
-   ```TSX
+5. In that same directory, set up a new [story](https://storybook.js.org/docs/get-started/whats-a-story) for the component (e.g. `MyComponent.stories.jsx`). To start, this can also just be a simple placeholder:
+   ```JSX
    import React from "react";
-   import type { Meta, StoryObj } from '@storybook/react';
 
    import { MyComponent } from './MyComponent';
 
-   const meta: Meta<typeof MyComponent> = {
+   const meta = {
      component: MyComponent,
    };
 
    export default meta;
-   type Story = StoryObj<typeof MyComponent>;
 
    /*
     *👇 Render functions are a framework specific feature to allow you control on how the component renders.
     * See https://storybook.js.org/docs/api/csf
     * to learn how to use render functions.
     */
-   export const Primary: Story = {
+   export const Primary = {
      render: () => <MyComponent />,
    };
    ```
    and export your component by creating an `index.ts` file in that directory (e.g., `./src/components/MyComponent/index.ts`) and using a named export:
-   ```TypeScript
+   ```JavaScript
    export { MyComponent } from "./MyComponent";
    ```
    and add your component as a named export from the `index.js` files in the `component` and `src` directories as well.
@@ -76,8 +74,6 @@ To run Storybook locally, use `yarn storybook`, and follow the instructions in t
 6. Continue developing your component, adding props to configure it as needed, and testing its functionality by running Storybook locally. Use other components in this repository as an example if it's helpful. 
 
    Make sure to export your component using a [named export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) from `./src/components/index.ts` so it can be bundled properly by Rollup. You should also bump the `version` in `package.json` (new components warrant a [minor version change](https://semver.org/#spec-item-7)).
-
-   Types for your component (and its props, if any) should be defined alongside the component/story, in the same directory (e.g., `MyComponent.types.ts`).
 
 7. Once the component is finished (or close to it), open a new [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (PR) for review. Feel free to open a [draft PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) if you want to share in-progress code with other collaborators for additional feedback.
 

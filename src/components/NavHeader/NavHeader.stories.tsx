@@ -5,7 +5,7 @@ import NavHeader from "./NavHeader";
 
 const meta: Meta<typeof NavHeader> = {
   component: NavHeader,
-  title: "MAPC/NavHeader",
+  title: "Components/NavHeader",
   decorators: [
     (Story) => (
       <MemoryRouter>
