@@ -5,15 +5,15 @@ import { authenticateEsri, queryFeatureService, queryAirtableBase } from "../../
 
 const meta = {
   component: MAPCMap,
-  title: "MAPC/MAPCMap",
+  title: "Components/MAPCMap",
 };
 export default meta;
 
-export const RegionalMapOnly = (args) => <MAPCMap {...args} />;
-RegionalMapOnly.args = { wrapperHeight: "95vh" };
-
-export const StateMapOnly = (args) => <MAPCMap {...args} />;
-StateMapOnly.args = { wrapperHeight: "95vh", mapFocus: "state" };
+export const BasemapOnly = {
+  name: "Basemap Only",
+  args: { wrapperHeight: "95vh", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN },
+  render: (args) => <MAPCMap {...args} />
+}
 
 // TODO: Set up separate AirTable base for Storybook and use that instead
 const pointData = await queryAirtableBase({
@@ -37,8 +37,11 @@ const points = [
   }
 ];
 
-export const AirTablePoints = (args) => <MAPCMap {...args} />;
-AirTablePoints.args = { wrapperHeight: "95vh", mapFocus: "state", points };
+export const AirTablePoints = {
+  name: "AirTable (Points)",
+  args: { wrapperHeight: "95vh", mapFocus: "state", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN, points },
+  render: (args) => <MAPCMap {...args} />
+}
 
 const clientId = process.env.STORYBOOK_AGOL_CLIENT_ID;
 const clientSecret = process.env.STORYBOOK_AGOL_CLIENT_SECRET;
@@ -62,5 +65,8 @@ const polygons = [
   }
 ];
 
-export const FeatureServicePolygons = (args) => <MAPCMap {...args} />;
-FeatureServicePolygons.args = { wrapperHeight: "95vh", mapFocus: "state", polygons };
+export const FeatureServicePolygons = {
+  name: "ESRI FeatureService (Polygons)",
+  args: { wrapperHeight: "95vh", mapFocus: "state", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN, polygons },
+  render: (args) => <MAPCMap {...args} />
+}

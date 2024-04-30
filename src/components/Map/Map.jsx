@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const MAPCMap = ({ wrapperHeight = "100vh", mapFocus = "region", polygons={}, points={} }) => {
+export const MAPCMap = ({ wrapperHeight="100vh", mapFocus="region", polygons={}, points={}, mapboxToken=process.env.MAPBOX_TOKEN }) => {
   let focusProps = regionMapProps; // Default: MAPC regional map
   if (mapFocus === "state") {
     focusProps = stateMapProps;
@@ -109,7 +109,7 @@ export const MAPCMap = ({ wrapperHeight = "100vh", mapFocus = "region", polygons
         smoothSensitivity={2.5} // zoom speed. default is 1
       >
         <TileLayer
-          url={createTileURL("light-v10")}
+          url={createTileURL("light-v10", mapboxToken)}
           attribution={mapboxAttribution}
           tileSize={512}
           zoomOffset={-1}

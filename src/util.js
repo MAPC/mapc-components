@@ -3,9 +3,9 @@ import { mapboxBaseURL, MAP_DB, GEOMETRY_STORE, AGOL_ORG_HASH } from "./constant
 import arcgisPbfDecode from "arcgis-pbf-parser";
 import * as Airtable from "airtable";
 
-export const createTileURL = (style = "light-v10") => {
+export const createTileURL = (style = "light-v10", token=process.env.MAPBOX_TOKEN) => {
   const params = new URLSearchParams();
-  params.set("access_token", process.env.STORYBOOK_MAPBOX_TOKEN || "");
+  params.set("access_token", token || "");
   const stylePath = `styles/v1/mapbox/${style}/tiles/{z}/{x}/{y}/`;
   return `${mapboxBaseURL}${stylePath}?${params}`;
 };
