@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const MAPCMap = ({ wrapperHeight="100vh", mapFocus="region", polygons={}, points={}, mapboxToken=process.env.MAPBOX_TOKEN }) => {
+export const MAPCMap = ({ wrapperHeight = "100vh", mapFocus = "region", polygons = [], points = [], mapboxToken = process.env.MAPBOX_TOKEN }) => {
   let focusProps = regionMapProps; // Default: MAPC regional map
   if (mapFocus === "state") {
     focusProps = stateMapProps;
@@ -51,7 +51,7 @@ export const MAPCMap = ({ wrapperHeight="100vh", mapFocus="region", polygons={},
   let layers = [];
   // TODO: provide options for indicating "blocking" vs "non-blocking" layers
   if (polygons.length == 0 && points.length == 0) {
-    layers = [(
+    layers = [
       <LoadingOverlay>
         <LoadingContainer>
           <LoadingIndicator
@@ -61,8 +61,8 @@ export const MAPCMap = ({ wrapperHeight="100vh", mapFocus="region", polygons={},
             <span style={{ display: "none" }}>Loading...</span>
           </LoadingIndicator>
         </LoadingContainer>
-      </LoadingOverlay>
-    )];
+      </LoadingOverlay>,
+    ];
   }
 
   if (polygons.length > 0) {
@@ -75,7 +75,7 @@ export const MAPCMap = ({ wrapperHeight="100vh", mapFocus="region", polygons={},
           data={polyConfig.data}
           style={polyConfig.styleFunction}
         />
-      )
+      );
     }
   }
 
@@ -86,12 +86,9 @@ export const MAPCMap = ({ wrapperHeight="100vh", mapFocus="region", polygons={},
         layers.push(
           <Circle
             key={point.properties[pointConfig.keyField]}
-            pathOptions={pointConfig.pathOptions }
+            pathOptions={pointConfig.pathOptions}
             radius={pointConfig.radius}
-            center={[
-              point.properties[pointConfig.latitudeField],
-              point.properties[pointConfig.longitudeField]
-            ]}
+            center={[point.properties[pointConfig.latitudeField], point.properties[pointConfig.longitudeField]]}
           />
         );
       }
@@ -114,7 +111,7 @@ export const MAPCMap = ({ wrapperHeight="100vh", mapFocus="region", polygons={},
           tileSize={512}
           zoomOffset={-1}
         />
-        { layers }
+        {layers}
         <ZoomControl position="bottomright" />
       </MapContainer>
     </Wrapper>

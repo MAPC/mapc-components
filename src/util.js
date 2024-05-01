@@ -3,7 +3,7 @@ import { mapboxBaseURL, MAP_DB, GEOMETRY_STORE, AGOL_ORG_HASH } from "./constant
 import arcgisPbfDecode from "arcgis-pbf-parser";
 import * as Airtable from "airtable";
 
-export const createTileURL = (style = "light-v10", token=process.env.MAPBOX_TOKEN) => {
+export const createTileURL = (style = "light-v10", token = process.env.MAPBOX_TOKEN) => {
   const params = new URLSearchParams();
   params.set("access_token", token || "");
   const stylePath = `styles/v1/mapbox/${style}/tiles/{z}/{x}/{y}/`;
@@ -81,7 +81,7 @@ const readFeatureCollection = async (cacheKey) => {
   const store = mapDB.transaction(GEOMETRY_STORE).objectStore(GEOMETRY_STORE);
   const polygons = await store.get(cacheKey);
   return polygons;
-}
+};
 
 const writeFeatureCollection = async (featureCollection) => {
   const mapDB = await openDB(MAP_DB, 2, {
@@ -104,7 +104,7 @@ const writeFeatureCollection = async (featureCollection) => {
   });
   const store = mapDB.transaction(GEOMETRY_STORE, "readwrite").objectStore(GEOMETRY_STORE);
   await store.put(featureCollection);
-}
+};
 
 export const getAGOLLayerURL = (serviceName, layerID = null) => {
   // TODO: separate layer from service
@@ -114,7 +114,7 @@ export const getAGOLLayerURL = (serviceName, layerID = null) => {
 
 export const getCacheKey = (serviceName, layerKey) => {
   return `${serviceName}-${layerKey}`;
-}
+};
 
 /*
  * Utility function for querying geometries from an ArcGIS Feature Service
@@ -128,8 +128,8 @@ export const getCacheKey = (serviceName, layerKey) => {
  *   }, [token, data]);
  *
  */
-export const queryFeatureService = async ({ serviceName, token = null, layerID = null, layerName = null, count = null, force=false }) => {
-  const layerKey = layerName? layerName : layerID;
+export const queryFeatureService = async ({ serviceName, token = null, layerID = null, layerName = null, count = null, force = false }) => {
+  const layerKey = layerName ? layerName : layerID;
   const cacheKey = getCacheKey(serviceName, layerKey);
   let featureCollection = await readFeatureCollection(cacheKey);
   if (!force && featureCollection != null) {
@@ -142,15 +142,17 @@ export const queryFeatureService = async ({ serviceName, token = null, layerID =
   }
 
   if (layerID == null) {
-    const layerResponse = await fetch(`https://services.arcgis.com/${AGOL_ORG_HASH}/ArcGIS/rest/services/${serviceName}/FeatureServer/layers?f=pjson&token=${token}`);
-    const { layers } =  await layerResponse.json();
+    const layerResponse = await fetch(
+      `https://services.arcgis.com/${AGOL_ORG_HASH}/ArcGIS/rest/services/${serviceName}/FeatureServer/layers?f=pjson&token=${token}`
+    );
+    const { layers } = await layerResponse.json();
     if (layers.length === 1 && layerName == null) {
       // If number of layers is 1, use that by default if no layerName is provided
       layerID = layers[0].id;
-      layerName = layers[0].name
+      layerName = layers[0].name;
     } else if (layerName != null) {
       // Otherwise, try to match layerName in list of available layers
-      layerID = layers.filter(l => l.name == serviceName)[0];
+      layerID = layers.filter((l) => l.name == serviceName)[0];
     }
   }
 
@@ -164,7 +166,7 @@ export const queryFeatureService = async ({ serviceName, token = null, layerID =
 
   const layerURL = getAGOLLayerURL(serviceName, layerID);
   if (count == null) {
-    const idURL = `${layerURL}/query?where=0=0&returnGeometry=false&f=pjson&token=${token}&returnIdsOnly=true`
+    const idURL = `${layerURL}/query?where=0=0&returnGeometry=false&f=pjson&token=${token}&returnIdsOnly=true`;
     const idsResponse = await fetch(idURL);
     // TODO: See if there's a way to do this with pbf
     const idsJSON = await idsResponse.json();
@@ -207,7 +209,19 @@ export const queryFeatureService = async ({ serviceName, token = null, layerID =
  *   }).then((points) => setPoints(points));
  *
  */
-export const queryAirtableBase = async ({ serviceName, token = null, baseID = null, tableName = null, viewName = null, sortOptions = [], count = null, fields = [], force = false, latitudeField = null, longitudeField = null }) => {
+export const queryAirtableBase = async ({
+  serviceName,
+  token = null,
+  baseID = null,
+  tableName = null,
+  viewName = null,
+  sortOptions = [],
+  count = null,
+  fields = [],
+  force = false,
+  latitudeField = null,
+  longitudeField = null,
+}) => {
   const cacheKey = getCacheKey(baseID, tableName);
   let featureCollection = await readFeatureCollection(cacheKey);
   if (!force && featureCollection != null) {
@@ -223,43 +237,41 @@ export const queryAirtableBase = async ({ serviceName, token = null, baseID = nu
   let cmsBase;
   if (token == null) {
     // Read token from env if not passed
+  } else {
     cmsBase = new Airtable({ apiKey: token }).base(baseID);
   }
 
   const featuresList = [];
-  const table = await cmsBase(tableName)
-    .select({
-      view: viewName,
-      sort: sortOptions,
-    })
+  const table = await cmsBase(tableName).select({
+    view: viewName,
+    sort: sortOptions,
+  });
 
-  const response = await table.eachPage(
-    (records, fetchNextPage) => {
-      records.forEach(function (record) {
-        let coordinates = [];
-        if(latitudeField == null || longitudeField == null) {
-          // Can't set coordinates if we don't know the lat/long
-          console.warn("latitudeField/longitudeField not defined: returning GeoJSON without coordinates!");
-        } else {
-          const longitude = record.fields[longitudeField];
-          const latitude = record.fields[latitudeField];
-          coordinates = [longitude, latitude];
-        }
-        // delete record.Long;
-        // delete record.Lat;
-        const feature = {
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates
-          },
-          properties: { ...record.fields },
-        };
-        featuresList.push(feature);
-      });
-      fetchNextPage();
-    }
-  );
+  const response = await table.eachPage((records, fetchNextPage) => {
+    records.forEach(function (record) {
+      let coordinates = [];
+      if (latitudeField == null || longitudeField == null) {
+        // Can't set coordinates if we don't know the lat/long
+        console.warn("latitudeField/longitudeField not defined: returning GeoJSON without coordinates!");
+      } else {
+        const longitude = record.fields[longitudeField];
+        const latitude = record.fields[latitudeField];
+        coordinates = [longitude, latitude];
+      }
+      // delete record.Long;
+      // delete record.Lat;
+      const feature = {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates,
+        },
+        properties: { ...record.fields },
+      };
+      featuresList.push(feature);
+    });
+    fetchNextPage();
+  });
 
   // Only fetch new data from server if read from IndexedDB is not successful
   featureCollection = {

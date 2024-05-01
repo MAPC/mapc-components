@@ -12,15 +12,16 @@ export default meta;
 export const BasemapOnly = {
   name: "Basemap Only",
   args: { wrapperHeight: "95vh", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN },
-  render: (args) => <MAPCMap {...args} />
-}
+  render: (args) => <MAPCMap {...args} />,
+};
 
 // TODO: Set up separate AirTable base for Storybook and use that instead
 const pointData = await queryAirtableBase({
+  token: process.env.STORYBOOK_AIRTABLE_TOKEN,
   baseID: "appIU7sOcjCrwiJZU",
   tableName: "State Subsidized Public Housing",
   fields: ["FID", "DevName", "Program", "Lat", "Long"],
-  sortOptions: [{field: "FID", direction: "asc"}],
+  sortOptions: [{ field: "FID", direction: "asc" }],
   latitudeField: "Lat",
   longitudeField: "Long",
 });
@@ -33,21 +34,21 @@ const points = [
     latitudeField: "Lat",
     longitudeField: "Long",
     radius: 200,
-    data: pointData.features
-  }
+    data: pointData.features,
+  },
 ];
 
 export const AirTablePoints = {
   name: "AirTable (Points)",
   args: { wrapperHeight: "95vh", mapFocus: "state", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN, points },
-  render: (args) => <MAPCMap {...args} />
-}
+  render: (args) => <MAPCMap {...args} />,
+};
 
 const clientId = process.env.STORYBOOK_AGOL_CLIENT_ID;
 const clientSecret = process.env.STORYBOOK_AGOL_CLIENT_SECRET;
 const token = await authenticateEsri(clientId, clientSecret);
 const serviceName = MUNI_POLYGONS;
-const polygonData = await queryFeatureService({token, serviceName});
+const polygonData = await queryFeatureService({ token, serviceName });
 
 const polygons = [
   {
@@ -61,12 +62,12 @@ const polygons = [
         opacity: 0.5,
       };
     },
-    data: polygonData.features
-  }
+    data: polygonData.features,
+  },
 ];
 
 export const FeatureServicePolygons = {
   name: "ESRI FeatureService (Polygons)",
   args: { wrapperHeight: "95vh", mapFocus: "state", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN, polygons },
-  render: (args) => <MAPCMap {...args} />
-}
+  render: (args) => <MAPCMap {...args} />,
+};
