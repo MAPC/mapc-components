@@ -9,8 +9,20 @@ const meta = {
 };
 export default meta;
 
+const emptyPoints = [
+  {
+    id: "empty-points",
+    data: [],
+  }
+];
 export const BasemapOnly = {
   name: "Basemap Only",
+  args: { wrapperHeight: "95vh", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN, points: emptyPoints},
+  render: (args) => <MAPCMap {...args} />,
+};
+
+export const LoadingIndicator = {
+  name: "Loading Indicator",
   args: { wrapperHeight: "95vh", mapboxToken: process.env.STORYBOOK_MAPBOX_TOKEN },
   render: (args) => <MAPCMap {...args} />,
 };
