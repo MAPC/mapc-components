@@ -24,6 +24,7 @@ const pointData = await queryAirtableBase({
   sortOptions: [{ field: "FID", direction: "asc" }],
   latitudeField: "Lat",
   longitudeField: "Long",
+  force: true
 });
 
 const points = [
@@ -48,7 +49,7 @@ const clientId = process.env.STORYBOOK_AGOL_CLIENT_ID;
 const clientSecret = process.env.STORYBOOK_AGOL_CLIENT_SECRET;
 const token = await authenticateEsri(clientId, clientSecret);
 const serviceName = MUNI_POLYGONS;
-const polygonData = await queryFeatureService({ token, serviceName });
+const polygonData = await queryFeatureService({ token, serviceName, force: true });
 
 const polygons = [
   {

@@ -242,10 +242,14 @@ export const queryAirtableBase = async ({
   }
 
   const featuresList = [];
-  const table = await cmsBase(tableName).select({
-    view: viewName,
-    sort: sortOptions,
-  });
+  const selectOptions = {};
+  if (viewName != null) {
+    selectOptions.view = viewName;
+  }
+  if (sortOptions != null) {
+    selectOptions.sort = sortOptions;
+  }
+  const table = await cmsBase(tableName).select(selectOptions);
 
   const response = await table.eachPage((records, fetchNextPage) => {
     records.forEach(function (record) {
