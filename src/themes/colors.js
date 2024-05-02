@@ -15,3 +15,11 @@ export const blueTheme = {
 
   special: blues.Winter,
 };
+
+export const orangeTheme = {
+  primary: oranges.Peach,
+  secondary: oranges.Lobster,
+  tertiary: oranges.Melon,
+
+  special: oranges.Orange,
+};

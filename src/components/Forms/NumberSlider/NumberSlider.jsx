@@ -91,6 +91,7 @@ export const NumberSlider = ({
   theme,
   numericControl = true,
   stepButtons = true,
+  step = 1,
 }) => {
   const [inputValue, setInputValue] = useState(Number(value));
 
@@ -129,7 +130,7 @@ export const NumberSlider = ({
           max={max}
           value={inputValue}
           disabled={disabled}
-          step={max <= 1 ? "0.01" : "1"}
+          step={max <= 1 ? "0.01" : step}
           onChange={(e) => {
             handleChange(Number(e.target.value));
           }}
