@@ -23,3 +23,11 @@ export const orangeTheme = {
 
   special: oranges.Orange,
 };
+
+export const greenTheme = {
+  primary: greens.Spring,
+  secondary: greens.Elm,
+  tertiary: greens.Serbert,
+
+  special: greens.Lime,
+};

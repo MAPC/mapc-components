@@ -11,6 +11,7 @@ const ControlContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  color: ${(props) => props.theme.secondary};
 `;
 const RangeControl = styled.div`
   display: flex;
@@ -92,6 +93,10 @@ const Range = styled.input.attrs({ type: "range" })`
 `;
 
 const NumericControl = styled(InputGroup)`
+  .input-group-text {
+    color: ${(props) => props.theme.secondary};
+  }
+
   width: initial;
   /*
   width: fit-content;
@@ -101,6 +106,9 @@ const NumericControl = styled(InputGroup)`
 `;
 
 const InputDecoration = styled(InputGroup.Text)`
+  .form-control {
+    color: ${(props) => props.theme.secondary};
+  }
   height: 100%;
 `;
 
@@ -128,7 +136,7 @@ export const MultiThumbSlider = ({
   }
 
   return (
-    <ControlContainer>
+    <ControlContainer theme={theme}>
       <RangeControl>
         <RangeTerminus>{min}</RangeTerminus>
 
@@ -171,8 +179,11 @@ export const MultiThumbSlider = ({
       </RangeControl>
 
       {numericControl && (
-        <NumericControl size="sm">
-          <InputDecoration>At least</InputDecoration>
+        <NumericControl
+          size="sm"
+          theme={theme}
+        >
+          <InputDecoration theme={theme}>At least</InputDecoration>
           <RangeValue
             type="number"
             value={
@@ -200,7 +211,7 @@ export const MultiThumbSlider = ({
               handleChange(newValue);
             }}
           />
-          <InputDecoration>At most</InputDecoration>
+          <InputDecoration theme={theme}>At most</InputDecoration>
           <RangeValue
             type="number"
             value={
@@ -228,7 +239,7 @@ export const MultiThumbSlider = ({
               handleChange(newValue);
             }}
           />
-          {percentage && <InputDecoration>%</InputDecoration>}
+          {percentage && <InputDecoration theme={theme}>%</InputDecoration>}
         </NumericControl>
       )}
     </ControlContainer>

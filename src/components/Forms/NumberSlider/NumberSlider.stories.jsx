@@ -14,7 +14,7 @@ const meta = {
 };
 export default meta;
 
-let rangeValue = 30;
+let rangeValue = 60;
 function handleChange(value) {
   console.log(value);
   rangeValue = value;
@@ -33,10 +33,11 @@ FullSlider.args = {
   stepButtons: true,
 };
 
+rangeValue = 0;
 export const NoIncrementSlider = (args) => <NumberSlider {...args} />;
 NoIncrementSlider.args = {
-  min: 50,
-  max: 100,
+  min: 0,
+  max: 1,
   value: rangeValue,
   disabled: false,
   percentage: false,
@@ -45,7 +46,7 @@ NoIncrementSlider.args = {
   numericControl: true,
   stepButtons: false,
 };
-
+rangeValue = 60;
 export const NoInputSlider = (args) => <NumberSlider {...args} />;
 NoInputSlider.args = {
   min: 50,

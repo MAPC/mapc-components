@@ -11,6 +11,7 @@ const ControlContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  color: ${(props) => props.theme.secondary};
 `;
 const RangeControl = styled.div`
   display: flex;
@@ -60,6 +61,9 @@ const Range = styled(Form.Range)`
 `;
 
 const NumericControl = styled(InputGroup)`
+  .input-group-text {
+    color: ${(props) => props.theme.secondary};
+  }
   width: initial;
   /*
   width: fit-content;
@@ -69,13 +73,22 @@ const NumericControl = styled(InputGroup)`
 `;
 
 const InputDecoration = styled(InputGroup.Text)`
+  .form-control {
+    color: ${(props) => props.theme.secondary};
+  }
   height: 100%;
 `;
 
 const RangeStep = styled(Button)`
   color: ${(props) => props.theme.special};
   border-color: ${(props) => props.theme.primary};
-  :disabled {
+
+  &:hover {
+    color: "#dee2e6";
+    background-color: ${(props) => props.theme.special};
+    border-color: ${(props) => props.theme.special};
+  }
+  &:disabled {
     color: "#dee2e6";
     border-color: "#dee2e6";
   }
@@ -105,7 +118,7 @@ export const NumberSlider = ({
   }
 
   return (
-    <ControlContainer>
+    <ControlContainer theme={theme}>
       <RangeControl>
         <RangeTerminus>{min}</RangeTerminus>
 
@@ -155,8 +168,11 @@ export const NumberSlider = ({
       </RangeControl>
 
       {numericControl && (
-        <NumericControl size="sm">
-          <InputDecoration>At least</InputDecoration>
+        <NumericControl
+          size="sm"
+          theme={theme}
+        >
+          <InputDecoration theme={theme}>At least</InputDecoration>
           <RangeValue
             type="number"
             value={
@@ -184,7 +200,7 @@ export const NumberSlider = ({
               handleChange(newValue);
             }}
           />
-          {percentage && <InputDecoration>%</InputDecoration>}
+          {percentage && <InputDecoration theme={theme}>%</InputDecoration>}
         </NumericControl>
       )}
     </ControlContainer>
