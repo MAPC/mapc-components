@@ -1,9 +1,8 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
 import NavHeader from "./NavHeader";
 
-const meta: Meta<typeof NavHeader> = {
+const meta = {
   component: NavHeader,
   title: "Components/NavHeader",
   decorators: [
@@ -16,9 +15,7 @@ const meta: Meta<typeof NavHeader> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof NavHeader>;
-
-export const TitleAndRoutes: Story = (args) => <NavHeader {...args} />;
+export const TitleAndRoutes = (args) => <NavHeader {...args} />;
 TitleAndRoutes.args = {
   title: { key: "", path: "/", label: "Home Page" },
   routes: [
@@ -28,12 +25,12 @@ TitleAndRoutes.args = {
   ],
 };
 
-export const TitleOnly: Story = (args) => <NavHeader {...args} />;
+export const TitleOnly = (args) => <NavHeader {...args} />;
 TitleOnly.args = {
   title: { key: "", path: "/", label: "Home Page" },
 };
 
-export const RoutesOnly: Story = (args) => <NavHeader {...args} />;
+export const RoutesOnly = (args) => <NavHeader {...args} />;
 RoutesOnly.args = {
   routes: [
     { key: "page1", path: "/page1", label: "Page 1" },
