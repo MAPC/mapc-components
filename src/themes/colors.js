@@ -31,3 +31,11 @@ export const greenTheme = {
 
   special: greens.Lime,
 };
+
+export const yellowTheme = {
+  primary: yellows.Butter,
+  secondary: yellows.Coffee,
+  tertiary: yellows.Cream,
+
+  special: yellows.Sunshine,
+};
