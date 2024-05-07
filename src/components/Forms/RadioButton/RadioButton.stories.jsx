@@ -11,13 +11,6 @@ import * as theme from "../../../themes/colors";
 const meta = {
   component: RadioButton,
   title: "Components/RadioButton",
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
 export default meta;
 

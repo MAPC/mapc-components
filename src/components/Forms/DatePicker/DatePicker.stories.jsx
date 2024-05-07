@@ -11,13 +11,7 @@ import * as theme from "../../../themes/colors";
 const meta = {
   component: DatePicker,
   title: "Components/DatePicker",
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
+
 };
 export default meta;
 

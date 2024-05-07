@@ -12,6 +12,7 @@ export const blueTheme = {
   primary: blues.Lake,
   secondary: blues.Ocean,
   tertiary: blues.Ice,
+  quaternary: blues.Denim,
 
   special: blues.Winter,
 };
@@ -20,6 +21,7 @@ export const orangeTheme = {
   primary: oranges.Peach,
   secondary: oranges.Lobster,
   tertiary: oranges.Melon,
+  quaternary: oranges.Clay,
 
   special: oranges.Orange,
 };
@@ -28,6 +30,7 @@ export const greenTheme = {
   primary: greens.Spring,
   secondary: greens.Elm,
   tertiary: greens.Serbert,
+  quaternary: greens.Seaweed,
 
   special: greens.Lime,
 };
@@ -36,6 +39,7 @@ export const yellowTheme = {
   primary: yellows.Butter,
   secondary: yellows.Coffee,
   tertiary: yellows.Cream,
+  quaternary: yellows.Bronze,
 
   special: yellows.Sunshine,
 };
