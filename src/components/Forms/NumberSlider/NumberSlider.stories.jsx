@@ -20,6 +20,13 @@ function handleChange(value) {
   rangeValue = value;
 }
 
+function validation(value) {
+  if (value > 50) {
+    return true;
+  }
+  return false;
+}
+
 export const FullSlider = (args) => <NumberSlider {...args} />;
 FullSlider.args = {
   min: 50,
@@ -31,6 +38,7 @@ FullSlider.args = {
   theme: theme.blueTheme,
   numericControl: true,
   stepButtons: true,
+  validate: validation,
 };
 
 rangeValue = 0;
@@ -45,6 +53,7 @@ NoIncrementSlider.args = {
   theme: theme.blueTheme,
   numericControl: true,
   stepButtons: false,
+  validate: validation,
 };
 rangeValue = 60;
 export const NoInputSlider = (args) => <NumberSlider {...args} />;

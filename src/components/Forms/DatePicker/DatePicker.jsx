@@ -16,7 +16,7 @@ const StyledDatePicker = styled(Form.Control)`
   }
 `;
 
-export const DatePicker = ({ text, date, onChange = () => {}, theme }) => {
+export const DatePicker = ({ text, date, validate = () => {}, onChange = () => {}, theme }) => {
   const [dateValue, setDateValue] = useState(date ? new Date(date).toISOString().split("T")[0] : new Date().toISOString().split("T")[0]);
   console.log(dateValue);
   return (
@@ -30,6 +30,7 @@ export const DatePicker = ({ text, date, onChange = () => {}, theme }) => {
         setDateValue(e.target.value);
         onChange(e.target.value);
       }}
+      isValid={validate(dateValue)}
     />
   );
 };

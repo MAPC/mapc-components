@@ -11,12 +11,20 @@ import * as theme from "../../../themes/colors";
 const meta = {
   component: DatePicker,
   title: "Components/DatePicker",
-
 };
 export default meta;
 
 function handleChange(value) {
   console.log(value);
+}
+
+function validation(value) {
+  const year = new Date(value).getFullYear();
+
+  if (year >= "2010") {
+    return true;
+  }
+  return false;
 }
 
 export const DatePickerStory = (args) => <DatePicker {...args} />;
@@ -25,4 +33,5 @@ DatePickerStory.args = {
   date: new Date("June 10, 2010").toISOString().split("T")[0],
   onChange: handleChange,
   theme: theme.greenTheme,
+  validate: validation,
 };

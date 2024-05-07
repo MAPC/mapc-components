@@ -13,22 +13,22 @@ const TextControl = styled(FormControl)`
   }};
 `;
 
-export const TextInput = ({ text, readOnly = false, type = "text", disabled = false, isValid = true, isInvalid = false, onChange = () => {}, theme }) => {
-  // function proxyHandler(event){
-  //     if(numericOnly && event.target.value == nu){
-
-  //     }
-  // }
+export const TextInput = ({ text, readOnly = false, type = "text", disabled = false, validate = () => {}, isInvalid = false, onChange = () => {}, theme }) => {
+  const [value, setValue] = useState("");
   return (
     <>
       <TextControl
         placeholder={text}
+        value={value}
         readOnly={readOnly}
         type={type}
         disabled={disabled}
-        isValid={isValid}
+        isValid={validate(value)}
         isInvalid={isInvalid}
-        onChange={onChange}
+        onChange={(e) => {
+          setValue(e.target.value);
+          onChange(e.target.value);
+        }}
         theme={theme}
       />
     </>

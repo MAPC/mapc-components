@@ -105,6 +105,7 @@ export const NumberSlider = ({
   numericControl = true,
   stepButtons = true,
   step = 1,
+  validate = () => {},
 }) => {
   const [inputValue, setInputValue] = useState(Number(value));
 
@@ -199,6 +200,7 @@ export const NumberSlider = ({
               }
               handleChange(newValue);
             }}
+            isValid={validate(inputValue)}
           />
           {percentage && <InputDecoration theme={theme}>%</InputDecoration>}
         </NumericControl>
