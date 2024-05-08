@@ -10,7 +10,7 @@ import * as colorTheme from "../../../themes/colors";
 }
 const meta = {
   component: TextInput,
-  title: "Components/TextInput",
+  title: "Components/Forms/TextInput",
 };
 export default meta;
 

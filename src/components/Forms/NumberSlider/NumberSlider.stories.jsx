@@ -10,7 +10,7 @@ import * as theme from "../../../themes/colors";
 }
 const meta = {
   component: NumberSlider,
-  title: "Components/NumberSlider",
+  title: "Components/Forms/NumberSlider",
 };
 export default meta;
 

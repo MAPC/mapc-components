@@ -10,7 +10,7 @@ import * as theme from "../../../themes/colors";
 }
 const meta = {
   component: SelectDropdown,
-  title: "Components/SelectDropdown",
+  title: "Components/Forms/SelectDropdown",
   decorators: [
     (Story) => (
       <MemoryRouter>

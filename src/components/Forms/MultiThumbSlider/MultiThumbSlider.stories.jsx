@@ -10,7 +10,7 @@ import * as theme from "../../../themes/colors";
 }
 const meta = {
   component: MultiThumbSlider,
-  title: "Components/MultiThumbSlider",
+  title: "Components/Forms/MultiThumbSlider",
 };
 export default meta;
 

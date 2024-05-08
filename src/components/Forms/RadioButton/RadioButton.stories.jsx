@@ -10,7 +10,7 @@ import * as theme from "../../../themes/colors";
 }
 const meta = {
   component: RadioButton,
-  title: "Components/RadioButton",
+  title: "Components/Forms/RadioButton",
 };
 export default meta;
 

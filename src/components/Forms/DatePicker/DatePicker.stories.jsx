@@ -10,7 +10,7 @@ import * as theme from "../../../themes/colors";
 }
 const meta = {
   component: DatePicker,
-  title: "Components/DatePicker",
+  title: "Components/Forms/DatePicker",
 };
 export default meta;
 
