@@ -95,3 +95,17 @@
     url(../assets/fonts/SwiftNeueLTPro-Regular.woff2) format("woff2"),
     url(../assets/fonts/SwiftNeueLTPro-Regular.woff) format("woff");
 }
+
+@font-face {
+  font-family: "OpenSans";
+  src:
+    url(../assets/fonts/OpenSans.woff2) format("woff2"),
+    url(../assets/fonts/OpenSans.woff) format("woff");
+}
+
+@font-face {
+  font-family: "OpenSans-Italic";
+  src:
+    url(../assets/fonts/OpenSans-Italic.woff2) format("woff2"),
+    url(../assets/fonts/OpenSans-Italic.woff) format("woff");
+}

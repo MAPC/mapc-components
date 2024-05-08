@@ -8,3 +8,9 @@ dist/**/*
 
 # yarn
 .yarn/install-state.gz
+
+# Environment variables
+.env
+
+# MacOS
+.DS_Store

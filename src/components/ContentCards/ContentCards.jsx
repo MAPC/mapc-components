@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import * as style_theme from "../../themes/styles";
 
-const TableContainer = styled.div`
+const CardsContainer = styled.div`
   display: flex;
   width: 100%;
   height: ${(props) => {
@@ -12,7 +12,7 @@ const TableContainer = styled.div`
   /* padding: 1rem 1rem; */
 `;
 
-const TableSection = styled.div`
+const CardsSection = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -28,16 +28,16 @@ const TableSection = styled.div`
   background-color: ${(props) => props.theme.tertiary};
 `;
 
-const TableSectionTitle = styled.h3`
+const CardsSectionTitle = styled.h3`
   margin-bottom: 1rem;
   color: ${(props) => props.theme.secondary};
 `;
 
-const TableSectionText = styled.span`
+const CardsSectionText = styled.span`
   margin-bottom: 1rem;
 `;
 
-const TableSectionLinkUl = styled.ul`
+const CardsSectionLinkUl = styled.ul`
   list-style-type: "⭐ ";
 
   display: flex;
@@ -47,57 +47,57 @@ const TableSectionLinkUl = styled.ul`
   justify-content: end;
 `;
 
-const TableSectionLinkLi = styled.li`
+const CardsSectionLinkLi = styled.li`
   color:;
 `;
 
-const TableSectionLink = styled.a`
+const CardsSectionLink = styled.a`
   font-family: sans-serif;
 `;
 
-// TableData structure: [{title:string, text:string, links: string[]}, ...]
-export const TableOfContents = ({ TableData, Themes, Height }) => {
-  const [tableSections, setTableSections] = useState([]);
+// CardsData structure: [{title:string, text:string, links: string[]}, ...]
+export const ContentCards = ({ CardsData, Themes, Height }) => {
+  const [CardsSections, setCardsSections] = useState([]);
 
   useEffect(() => {
-    const generateTable = (data) => {
-      const tempTable = [];
+    const generateCards = (data) => {
+      const tempCards = [];
 
       Object.values(data).forEach((section) => {
         const tempLinks = [];
 
         section.links.forEach((link) => {
           tempLinks.push(
-            <TableSectionLinkLi>
-              <TableSectionLink
+            <CardsSectionLinkLi>
+              <CardsSectionLink
                 href={window.location.origin + "/" + link.link}
                 style={style_theme.themed_link(Themes)}
               >
                 {link.name}
-              </TableSectionLink>
-            </TableSectionLinkLi>
+              </CardsSectionLink>
+            </CardsSectionLinkLi>
           );
         });
-        tempTable.push(
-          <TableSection numSections={Object.values(data).length}>
-            <TableSectionTitle>{section.title}</TableSectionTitle>
-            <TableSectionText>{section.text}</TableSectionText>
-            <TableSectionLinkUl>{tempLinks}</TableSectionLinkUl>
-          </TableSection>
+        tempCards.push(
+          <CardsSection numSections={Object.values(data).length}>
+            <CardsSectionTitle>{section.title}</CardsSectionTitle>
+            <CardsSectionText>{section.text}</CardsSectionText>
+            <CardsSectionLinkUl>{tempLinks}</CardsSectionLinkUl>
+          </CardsSection>
         );
       });
 
-      setTableSections(tempTable);
+      setCardsSections(tempCards);
     };
 
-    generateTable(TableData);
-  }, [TableData]);
+    generateCards(CardsData);
+  }, [CardsData]);
   console.log(Themes);
   return (
-    <TableContainer height={Height}>
-      <ThemeProvider theme={Themes}>{tableSections}</ThemeProvider>
-    </TableContainer>
+    <CardsContainer height={Height}>
+      <ThemeProvider theme={Themes}>{CardsSections}</ThemeProvider>
+    </CardsContainer>
   );
 };
 
-export default TableOfContents;
+export default ContentCards;
