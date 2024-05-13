@@ -1,13 +1,13 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
-import { TableOfContents } from "./TableOfContents";
+import { ContentCards } from "./ContentCards";
 
 import * as theme from "../../themes/colors";
 
 const meta = {
-  component: TableOfContents,
-  title: "Components/TableOfContents",
+  component: ContentCards,
+  title: "Components/ContentCards",
   decorators: [
     (Story) => (
       <MemoryRouter>
@@ -18,9 +18,9 @@ const meta = {
 };
 export default meta;
 
-export const IntroductionTable = (args) => <TableOfContents {...args} />;
-IntroductionTable.args = {
-  TableData: [
+export const IntroductionCards = (args) => <ContentCards {...args} />;
+IntroductionCards.args = {
+  CardsData: [
     {
       title: "Principles",
       text: "Design principles by which we structure and format our design system. Additionally defining development styles and considerations for relevant components and projects.",

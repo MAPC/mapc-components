@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
-import { NavHeaderProps } from "./NavHeader.types";
 
 export const NavHeaderContainer = styled.header`
   background-color: #fbfffe;
@@ -53,7 +52,7 @@ export const NavLink = styled(Nav.Link)`
   font-family: sans-serif;
 `;
 
-export const NavHeader: React.FC<NavHeaderProps> = ({
+export const NavHeader = ({
   title = {
     key: "",
     path: "/",

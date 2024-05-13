@@ -13,7 +13,7 @@ export default create({
   brandImage: mapclogo,
   brandTarget: "_self",
 
-  colorPrimary: theme.mapc_blue["MAPC Blue"],
+  colorPrimary: theme.mapcBlue["MAPC Blue"],
   //   colorSecondary: "#004b24",
   //   colorSecondary: "#c8e2ae",
 
