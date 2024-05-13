@@ -8,16 +8,6 @@ export const greens = { Serbert: "#c8e2ae", Spring: "#9acf87", Lime: "#78be43", 
 export const blues = { Ice: "#d4effc", Lake: "#92cfe8", Winter: "#00a2ce", Denim: "#104c90", Ocean: "#012169 " };
 export const grays = { Paper: "#ffffff", Cloudy: "#bac0c2", Stone: "#6f7476", Charcoal: "#3a3f40", Galaxy: "#0b1618" };
 
-<<<<<<< HEAD
-export const grayTheme = {
-  primary: grays.Cloudy,
-  secondary: grays.Galaxy,
-  tertiary: grays.Paper,
-  quaternary: grays.Charcoal,
-
-  special: grays.Stone,
-};
-=======
 // MC 2050 colors
 export const MCYellows = { Craft: "#FCF8ED", Sun: "#FFB624", Mustard: "#DB9E00", Bistre: "#3D2A08" };
 export const MCOranges = { Craft: "#FCF8ED", Cranberry: "#FF5A50", Brick: "#FF3824", Rust: "#52000D" };
@@ -45,7 +35,15 @@ export const MCPurples = {
 };
 export const MCGrays = { WarmGray: "#EFEFE7", Black: "#000000" };
 
->>>>>>> 4cb7e4a707ec3366660496801e22d57d72d427f0
+export const grayTheme = {
+  primary: grays.Cloudy,
+  secondary: grays.Galaxy,
+  tertiary: grays.Paper,
+  quaternary: grays.Charcoal,
+
+  special: grays.Stone,
+};
+
 export const blueTheme = {
   primary: blues.Lake,
   secondary: blues.Ocean,
