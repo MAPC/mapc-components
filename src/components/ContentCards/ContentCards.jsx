@@ -92,7 +92,7 @@ export const ContentCards = ({ CardsData, Themes, Height }) => {
 
     generateCards(CardsData);
   }, [CardsData]);
-  console.log(Themes);
+
   return (
     <CardsContainer height={Height}>
       <ThemeProvider theme={Themes}>{CardsSections}</ThemeProvider>
