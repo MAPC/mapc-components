@@ -16,7 +16,6 @@ export default meta;
 
 let rangeValue = 60;
 function handleChange(value) {
-  console.log(value);
   rangeValue = value;
 }
 
