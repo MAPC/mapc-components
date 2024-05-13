@@ -21,6 +21,12 @@ const StyledButton = styled(Button)`
     border-color: ${(props) => (props.main ? props.theme.quaternary : props.theme.primary)} !important;
     transform: ${(props) => (props.juice ? "scale(0.95)" : "")};
   }
+  &:disabled {
+    cursor: "cursor";
+    color: ${(props) => props.theme.disabled.secondary};
+    background-color: ${(props) => (props.main ? props.theme.disabled.special : props.theme.disabled.primary)};
+    border-color: ${(props) => (props.main ? props.theme.disabled.quaternary : props.theme.disabled.quaternary)};
+  }
 `;
 
 export const MAPCButton = ({ text, disabled = false, juice = false, onClick = () => {}, main = false, theme }) => {

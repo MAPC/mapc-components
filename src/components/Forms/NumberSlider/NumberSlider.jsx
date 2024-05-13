@@ -20,6 +20,7 @@ const RangeControl = styled.div`
   align-items: center;
   width: 100%;
   gap: 1rem;
+  margin-bottom: 0.5rem;
 
   input.form-range {
     flex: 7;
@@ -40,23 +41,62 @@ const RangeTerminus = styled.div`
 const Range = styled(Form.Range)`
   pointer-events: auto;
   /* Styling the slider thumb for WebKit browsers */
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none; // Necessary to remove default styling
     appearance: none;
     height: 20px;
     width: 20px;
-    background-color: ${(props) => props.theme.special}; // Green background
+    position: relative;
+    top: -2px;
+    z-index: 10;
+
+    pointer-events: auto;
+    background: ${(props) => (props.disabled ? props.theme.disabled.special : props.theme.special)} !important;
     border-radius: 50%; // Circular thumb
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
+    transition: background-color 0.3s ease; // Smooth transition for hover effect
+
+    box-shadow: none !important;
+  }
+  &::-moz-range-thumb {
+    -moz-appearance: none; // Necessary to remove default styling
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: -2px;
+    z-index: 10;
+
+    pointer-events: auto;
+    background: ${(props) => (props.disabled ? props.theme.disabled.special : props.theme.special)};
+    border-radius: 50%; // Circular thumb
+    border-color: ${(props) => (props.disabled ? props.theme.disabled.primary : props.theme.primary)};
+    cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
     transition: background-color 0.3s ease; // Smooth transition for hover effect
   }
-
   /* Styling the slider track for WebKit browsers */
   &::-webkit-slider-runnable-track {
+    -webkit-appearance: none; // Necessary to remove default styling
+    appearance: none;
     width: 100%;
     height: 8px;
-    background-color: ${(props) => props.theme.tertiary};
+    border: none;
+
     border-radius: 4px;
+    pointer-events: none !important;
+    background-color: ${(props) => (props.disabled ? props.theme.disabled.primary : props.theme.tertiary)};
+  }
+  &::-moz-range-track {
+    -moz-appearance: none; // Necessary to remove default styling
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border: none;
+
+    border-radius: 4px;
+    pointer-events: none !important;
+    background-color: ${(props) => (props.disabled ? props.theme.disabled.primary : props.theme.tertiary)};
   }
 `;
 
@@ -80,17 +120,13 @@ const InputDecoration = styled(InputGroup.Text)`
 `;
 
 const RangeStep = styled(Button)`
-  color: ${(props) => props.theme.special};
-  border-color: ${(props) => props.theme.primary};
+  color: ${(props) => (props.disabled ? props.theme.disabled.special + "!important" : props.theme.special)};
+  border-color: ${(props) => (props.disabled ? props.theme.disabled.primary + "!important" : props.theme.primary)};
 
   &:hover {
     color: "#dee2e6";
-    background-color: ${(props) => props.theme.special};
-    border-color: ${(props) => props.theme.special};
-  }
-  &:disabled {
-    color: "#dee2e6";
-    border-color: "#dee2e6";
+    background-color: ${(props) => (props.disabled ? props.theme.disabled.special + "!important" : props.theme.special)};
+    border-color: ${(props) => (props.disabled ? props.theme.disabled.special + "!important" : props.theme.special)};
   }
 `;
 
@@ -105,7 +141,8 @@ export const NumberSlider = ({
   numericControl = true,
   stepButtons = true,
   step = 1,
-  validate = () => {},
+  isValid = false,
+  isInvalid = false,
 }) => {
   const [inputValue, setInputValue] = useState(Number(value));
 
@@ -200,7 +237,8 @@ export const NumberSlider = ({
               }
               handleChange(newValue);
             }}
-            isValid={validate(inputValue)}
+            isValid={isValid}
+            isInvalid={isInvalid}
           />
           {percentage && <InputDecoration theme={theme}>%</InputDecoration>}
         </NumericControl>

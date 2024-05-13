@@ -8,6 +8,14 @@ export const greens = { Serbert: "#c8e2ae", Spring: "#9acf87", Lime: "#78be43", 
 export const blues = { Ice: "#d4effc", Lake: "#92cfe8", Winter: "#00a2ce", Denim: "#104c90", Ocean: "#012169 " };
 export const grays = { Paper: "#ffffff", Cloudy: "#bac0c2", Stone: "#6f7476", Charcoal: "#3a3f40", Galaxy: "#0b1618" };
 
+export const grayTheme = {
+  primary: grays.Cloudy,
+  secondary: grays.Galaxy,
+  tertiary: grays.Paper,
+  quaternary: grays.Charcoal,
+
+  special: grays.Stone,
+};
 export const blueTheme = {
   primary: blues.Lake,
   secondary: blues.Ocean,
@@ -15,6 +23,7 @@ export const blueTheme = {
   quaternary: blues.Denim,
 
   special: blues.Winter,
+  disabled: grayTheme,
 };
 
 export const orangeTheme = {
@@ -24,6 +33,7 @@ export const orangeTheme = {
   quaternary: oranges.Clay,
 
   special: oranges.Orange,
+  disabled: grayTheme,
 };
 
 export const greenTheme = {
@@ -33,6 +43,7 @@ export const greenTheme = {
   quaternary: greens.Seaweed,
 
   special: greens.Lime,
+  disabled: grayTheme,
 };
 
 export const yellowTheme = {
@@ -42,4 +53,5 @@ export const yellowTheme = {
   quaternary: yellows.Bronze,
 
   special: yellows.Sunshine,
+  disabled: grayTheme,
 };

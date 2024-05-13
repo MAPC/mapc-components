@@ -18,21 +18,13 @@ function handleChange(event) {
   console.log(event.target.value);
 }
 
-function validation(value) {
-  console.log(value);
-  if (value.length < 15) {
-    return true;
-  }
-  return false;
-}
-
 export const TextInputStory = (args) => <TextInput {...args} />;
 TextInputStory.args = {
   text: "Hello World!",
   readOnly: false,
   // type: "number",
   disabled: false,
-  validate: validation,
+  isValid: false,
   isInvalid: false,
   theme: colorTheme.blueTheme,
   onChange: handleChange,

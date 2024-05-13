@@ -18,20 +18,13 @@ function handleChange(value) {
   console.log(value);
 }
 
-function validation(value) {
-  const year = new Date(value).getFullYear();
-
-  if (year >= "2010") {
-    return true;
-  }
-  return false;
-}
-
 export const DatePickerStory = (args) => <DatePicker {...args} />;
 DatePickerStory.args = {
   text: "Due Date",
   date: new Date("June 10, 2010").toISOString().split("T")[0],
   onChange: handleChange,
   theme: theme.greenTheme,
-  validate: validation,
+  isValid: false,
+  isInvalid: false,
+  disabled: false,
 };

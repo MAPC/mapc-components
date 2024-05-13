@@ -41,6 +41,7 @@ const RangeWrapper = styled.div`
   position: relative;
   width: 100%;
   flex: 7;
+  margin-bottom: 1rem;
 `;
 
 const Range = styled.input.attrs({ type: "range" })`
@@ -50,6 +51,8 @@ const Range = styled.input.attrs({ type: "range" })`
   position: absolute;
   -webkit-appearance: none; // Necessary to remove default styling
   appearance: none;
+  height: 8px;
+  border-radius: 4px;
 
   background-color: ${(props) => (props.slider ? props.theme.tertiary : "transparent")};
   /* Styling the slider thumb for WebKit browsers */
@@ -63,21 +66,27 @@ const Range = styled.input.attrs({ type: "range" })`
     z-index: 10;
 
     pointer-events: auto;
-    background: ${(props) => props.theme.special};
+    background: ${(props) => (props.disabled ? props.theme.disabled.special : props.theme.special)};
     border-radius: 50%; // Circular thumb
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? "cursor" : "pointer")};
     transition: background-color 0.3s ease; // Smooth transition for hover effect
   }
-  /* &::-moz-range-thumb {
-    -webkit-appearance: none; // Necessary to remove default styling
+  &::-moz-range-thumb {
+    -moz-appearance: none; // Necessary to remove default styling
     appearance: none;
     height: 20px;
     width: 20px;
-    background-color: ${(props) => props.theme.special};
+    position: relative;
+    top: -6px;
+    z-index: 10;
+
+    pointer-events: auto;
+    background: ${(props) => (props.disabled ? props.theme.disabled.special : props.theme.special)};
     border-radius: 50%; // Circular thumb
-    cursor: pointer;
+    border-color: ${(props) => (props.disabled ? props.theme.disabled.primary : props.theme.primary)};
+    cursor: ${(props) => (props.disabled ? "cursor" : "pointer")};
     transition: background-color 0.3s ease; // Smooth transition for hover effect
-  } */
+  }
   /* Styling the slider track for WebKit browsers */
   &::-webkit-slider-runnable-track {
     -webkit-appearance: none; // Necessary to remove default styling
@@ -88,7 +97,18 @@ const Range = styled.input.attrs({ type: "range" })`
 
     border-radius: 4px;
     pointer-events: none !important;
-    background-color: ${(props) => (props.slider ? props.theme.tertiary : "transparent")};
+    background-color: ${(props) => (props.slider ? (props.disabled ? props.theme.disabled.primary : props.theme.tertiary) : "transparent")};
+  }
+  &::-moz-range-track {
+    -moz-appearance: none; // Necessary to remove default styling
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border: none;
+
+    border-radius: 4px;
+    pointer-events: none !important;
+    background-color: ${(props) => (props.slider ? (props.disabled ? props.theme.disabled.primary : props.theme.tertiary) : "transparent")};
   }
 `;
 

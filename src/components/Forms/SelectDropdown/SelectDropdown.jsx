@@ -31,23 +31,28 @@ const StyledOption = styled.option`
 
 const DropdownTitle = styled(DropdownButton)`
   .dropdown-toggle {
-    background-color: ${(props) => props.theme.special};
-    border-color: ${(props) => props.theme.quaternary};
-    width: 10rem;
+    background-color: ${(props) => (props.disabled ? props.theme.disabled.special : props.theme.special)};
+    border-color: ${(props) => (props.disabled ? props.theme.disabled.quaternary : props.theme.quaternary)};
+    border-radius: 8px;
+    width: 100%;
   }
   .dropdown-toggle:active {
     background-color: ${(props) => props.theme.quaternary};
     border-color: ${(props) => props.theme.secondary};
   }
   .dropdown-menu {
-    /* border-color: ${(props) => props.theme.primary}; */
-    border-color: transparent ${(props) => props.theme.primary} ${(props) => props.theme.primary} ${(props) => props.theme.primary};
-    border-radius: 0rem 0rem 1rem 1rem;
+    border-color: {(props) => props.theme.primary} ${(props) => props.theme.primary} ${(props) => props.theme.primary} ${(props) => props.theme.primary};
+    border-radius:7px;
+    width: 100%;
   }
 `;
 const DropdownItem = styled(Dropdown.Item)`
   .dropdown-item {
     background-color: ${(props) => props.theme.special};
+  }
+  &:active {
+    background-color: ${(props) => props.theme.tertiary} !important;
+    color: ${(props) => props.theme.secondary} !important;
   }
 `;
 
@@ -104,12 +109,14 @@ export const SelectDropdown = ({ disabled = false, options = [], type = "select"
         <StyledSelect
           onChange={onChange}
           theme={theme}
+          disabled={disabled}
         >
           {menuOptions}
         </StyledSelect>
       )}{" "}
       {type == "dropdown" && (
         <DropdownTitle
+          disabled={disabled}
           title={title}
           text={text}
           theme={theme}

@@ -40,4 +40,5 @@ NormalButton.args = {
   text: "Normal",
   onClick: clickFunction,
   theme: theme.blueTheme,
+  disabled: false,
 };

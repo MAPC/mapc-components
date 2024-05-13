@@ -27,6 +27,7 @@ function handleChange(value) {
 
 export const Dropdown = (args) => <SelectDropdown {...args} />;
 Dropdown.args = {
+  disabled: false,
   options: ["one", "two", "three"],
   type: "dropdown",
   title: "Dropdown",
