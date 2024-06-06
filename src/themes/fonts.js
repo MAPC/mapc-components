@@ -1,3 +1,4 @@
+
 const FontOpensans = new FontFace("OpenSans", "../assets/fonts/OpenSans.woff2");
 
 export const opensans = {
